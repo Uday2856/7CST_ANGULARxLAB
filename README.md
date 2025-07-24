@@ -35,7 +35,6 @@ But here’s the deal:
 It’s here for:
 - Code referencing (aka controlled copying)
 - Record documentation
-- Internal & external *survival*
 - Remembering what I even wrote a week ago
 
 So if you’re just Ctrl+C, Ctrl+V-ing without understanding a thing, don’t cry if your viva crashes harder than Angular CLI.
