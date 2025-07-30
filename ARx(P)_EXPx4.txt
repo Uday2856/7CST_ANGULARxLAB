@@ -1,0 +1,61 @@
+# ✅ Angular Project Setup
+npx -p @angular/cli@17 ng new exp4 --routing=true --style=css --no-standalone
+cd exp4
+ng generate component components/personal-details
+ng generate component components/academic-details
+ng generate component components/future-goals
+ts
+Copy
+Edit
+// ✅ app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
+import { AcademicDetailsComponent } from './components/academic-details/academic-details.component';
+import { FutureGoalsComponent } from './components/future-goals/future-goals.component';
+
+const routes: Routes = [
+  { path: 'personal', component: PersonalDetailsComponent },
+  { path: 'academic', component: AcademicDetailsComponent },
+  { path: 'future', component: FutureGoalsComponent },
+  { path: '', redirectTo: '/personal', pathMatch: 'full' },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+html
+Copy
+Edit
+<!-- ✅ app.component.html -->
+<div style="text-align:center; margin-bottom: 20px;">
+  <a routerLink="/personal" routerLinkActive="active-link" style="margin: 0 10px; text-decoration: underline; cursor: pointer;">Personal Details</a>
+  <a routerLink="/academic" routerLinkActive="active-link" style="margin: 0 10px; text-decoration: underline; cursor: pointer;">Academic Details</a>
+  <a routerLink="/future" routerLinkActive="active-link" style="margin: 0 10px; text-decoration: underline; cursor: pointer;">Future Goals</a>
+</div>
+<router-outlet></router-outlet>
+html
+Copy
+Edit
+<!-- ✅ personal-details.component.html -->
+<p>C1 Works</p>
+html
+Copy
+Edit
+<!-- ✅ academic-details.component.html -->
+<p>C2 Works</p>
+html
+Copy
+Edit
+<!-- ✅ future-goals.component.html -->
+<p>C3 Works</p>
+css
+Copy
+Edit
+/* ✅ styles.css */
+.active-link {
+  font-weight: bold;
+  color: darkblue;
+}
