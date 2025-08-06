@@ -1,24 +1,52 @@
-# ✅ Angular Project Setup
-npx -p @angular/cli@17 ng new exp4 --routing=true --style=css --no-standalone
-cd exp4
-ng generate component components/personal-details
-ng generate component components/academic-details
-ng generate component components/future-goals
+GOAL SUMMARY
+App name: app4
+
+Uses routing
+
+Top of the page: "Routing Application" centered
+
+Below: 3 hyperlink-style links:
+
+Personal Details → shows: C1 Works
+
+Academic Details → shows: C2 Works
+
+Future Goals → shows: C3 Works
+
+Default route (/) shows only heading and links (no component content)
+
+✅ 1. Create Angular App
+bash
+Copy
+Edit
+npx -p @angular/cli@17 ng new app4 --routing=true --style=css --no-standalone
+cd app4
+✅ 2. Generate Components
+bash
+Copy
+Edit
+ng generate component personal-details
+ng generate component academic-details
+ng generate component future-goals
+These will be created under src/app/.
+
+✅ 3. Configure Routing
+📄 src/app/app-routing.module.ts
+
 ts
 Copy
 Edit
-// ✅ app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
-import { AcademicDetailsComponent } from './components/academic-details/academic-details.component';
-import { FutureGoalsComponent } from './components/future-goals/future-goals.component';
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+import { AcademicDetailsComponent } from './academic-details/academic-details.component';
+import { FutureGoalsComponent } from './future-goals/future-goals.component';
 
 const routes: Routes = [
   { path: 'personal', component: PersonalDetailsComponent },
   { path: 'academic', component: AcademicDetailsComponent },
   { path: 'future', component: FutureGoalsComponent },
-  { path: '', redirectTo: '/personal', pathMatch: 'full' },
+  // Default route: no component rendered, just shows header & links
 ];
 
 @NgModule({
@@ -26,36 +54,253 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+🚫 No need for redirect or dummy component — leaving the root path empty will show only header and links.
+
+✅ 4. Update Main HTML Template
+📄 src/app/app.component.html
+
 html
 Copy
 Edit
-<!-- ✅ app.component.html -->
-<div style="text-align:center; margin-bottom: 20px;">
-  <a routerLink="/personal" routerLinkActive="active-link" style="margin: 0 10px; text-decoration: underline; cursor: pointer;">Personal Details</a>
-  <a routerLink="/academic" routerLinkActive="active-link" style="margin: 0 10px; text-decoration: underline; cursor: pointer;">Academic Details</a>
-  <a routerLink="/future" routerLinkActive="active-link" style="margin: 0 10px; text-decoration: underline; cursor: pointer;">Future Goals</a>
+<div style="text-align: center; margin-top: 20px;">
+  <h2>Routing Application</h2>
+
+  <!-- Navigation Links -->
+  <div style="margin: 20px 0;">
+    <a routerLink="/personal" routerLinkActive="active-link"
+       style="margin: 0 15px; text-decoration: underline; cursor: pointer;">
+      Personal Details
+    </a>
+    <a routerLink="/academic" routerLinkActive="active-link"
+       style="margin: 0 15px; text-decoration: underline; cursor: pointer;">
+      Academic Details
+    </a>
+    <a routerLink="/future" routerLinkActive="active-link"
+       style="margin: 0 15px; text-decoration: underline; cursor: pointer;">
+      Future Goals
+    </a>
+  </div>
 </div>
+
+<!-- Routed Component Appears Here -->
 <router-outlet></router-outlet>
+✅ 5. Add Content in Each Component
+📁 src/app/personal-details/personal-details.component.html
+
 html
 Copy
 Edit
-<!-- ✅ personal-details.component.html -->
 <p>C1 Works</p>
+📁 src/app/academic-details/academic-details.component.html
+
 html
 Copy
 Edit
-<!-- ✅ academic-details.component.html -->
 <p>C2 Works</p>
+📁 src/app/future-goals/future-goals.component.html
+
 html
 Copy
 Edit
-<!-- ✅ future-goals.component.html -->
 <p>C3 Works</p>
+✅ 6. Verify App Module Setup
+📄 src/app/app.module.ts should look like this:
+
+ts
+Copy
+Edit
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+import { AcademicDetailsComponent } from './academic-details/academic-details.component';
+import { FutureGoalsComponent } from './future-goals/future-goals.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    PersonalDetailsComponent,
+    AcademicDetailsComponent,
+    FutureGoalsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+✅ 7. Optional: Active Link Highlighting
+📄 src/styles.css (add this)
+
 css
 Copy
 Edit
-/* ✅ styles.css */
 .active-link {
   font-weight: bold;
   color: darkblue;
 }
+✅ FINAL OUTPUT
+Route What You See
+/ "Routing Application" + 3 links
+/personal Same header + C1 Works
+/academic Same header + C2 Works
+/future Same header + C3 Works
+
+
+->
+
+✅ Updated Angular App: Full Code
+You already have:
+
+markdown
+Copy
+Edit
+App Name: app4
+Routing: Enabled
+Three Components:
+  - personal-details
+  - academic-details
+  - future-goals
+✅ Step 1: app.component.html
+Displays title and router links
+
+html
+Copy
+Edit
+<!-- src/app/app.component.html -->
+<div style="text-align: center; margin-top: 20px;">
+  <h2>Routing Application</h2>
+
+  <!-- Navigation Links -->
+  <div style="margin: 20px 0;">
+    <a routerLink="/personal" routerLinkActive="active-link"
+       style="margin: 0 15px; text-decoration: underline; cursor: pointer;">
+      Personal Details
+    </a>
+    <a routerLink="/academic" routerLinkActive="active-link"
+       style="margin: 0 15px; text-decoration: underline; cursor: pointer;">
+      Academic Details
+    </a>
+    <a routerLink="/future" routerLinkActive="active-link"
+       style="margin: 0 15px; text-decoration: underline; cursor: pointer;">
+      Future Goals
+    </a>
+  </div>
+</div>
+
+<!-- Routed Component Will Be Rendered Below -->
+<router-outlet></router-outlet>
+✅ Step 2: personal-details.component.html
+html
+Copy
+Edit
+<!-- src/app/personal-details/personal-details.component.html -->
+<h3>Personal Details</h3>
+<ul>
+  <li><strong>First Name:</strong> Somapuram</li>
+  <li><strong>Last Name:</strong> Uday</li>
+  <li><strong>Phone No.:</strong> 8522836109</li>
+  <li><strong>Email:</strong> uday.somapuram [at] gmail.com</li>
+  <li><strong>Aadhar:</strong> xxxx xxxx 36109</li>
+  <li><strong>Blood Group:</strong> A+ve</li>
+</ul>
+✅ Step 3: academic-details.component.html
+html
+Copy
+Edit
+<!-- src/app/academic-details/academic-details.component.html -->
+<h3>Academic Details</h3>
+<ul>
+  <li><strong>Roll No.:</strong> 229X1A2856</li>
+  <li><strong>Year & Semester:</strong> 4th Year, 7th Semester</li>
+  <li><strong>Section:</strong> CST - A</li>
+  <li><strong>Department:</strong> CSE</li>
+  <li><strong>CGPA:</strong> 8.43</li>
+  <li><strong>Backlogs:</strong> None</li>
+</ul>
+✅ Step 4: future-goals.component.html
+html
+Copy
+Edit
+<!-- src/app/future-goals/future-goals.component.html -->
+<h3>Future Goals</h3>
+<p>
+  As a final-year Computer Science student, my goal is to become a skilled AI/ML developer.
+</p>
+<ul>
+  <li>Strengthen my knowledge in machine learning algorithms and deep learning frameworks.</li>
+  <li>Contribute to open-source AI projects and build real-world applications.</li>
+  <li>Pursue higher studies or certifications in Artificial Intelligence and Data Science.</li>
+  <li>Land a job in a research-driven tech company focused on AI innovations.</li>
+</ul>
+✅ Step 5: app-routing.module.ts
+ts
+Copy
+Edit
+// src/app/app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+import { AcademicDetailsComponent } from './academic-details/academic-details.component';
+import { FutureGoalsComponent } from './future-goals/future-goals.component';
+
+const routes: Routes = [
+  { path: 'personal', component: PersonalDetailsComponent },
+  { path: 'academic', component: AcademicDetailsComponent },
+  { path: 'future', component: FutureGoalsComponent }
+  // No default route component — just header & links
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+✅ Step 6: app.module.ts
+ts
+Copy
+Edit
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+import { AcademicDetailsComponent } from './academic-details/academic-details.component';
+import { FutureGoalsComponent } from './future-goals/future-goals.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    PersonalDetailsComponent,
+    AcademicDetailsComponent,
+    FutureGoalsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+✅ Step 7: styles.css (for active link highlighting)
+css
+Copy
+Edit
+/* src/styles.css */
+.active-link {
+  font-weight: bold;
+  color: darkblue;
+}
+✅ FINAL OUTPUT
+Route	What You See
+/	Title + 3 navigation links only
+/personal	Personal details list (fname, email, blood group, etc.)
+/academic	Academic info (roll number, CGPA, backlogs, etc.)
+/future	Goals as AI/ML aspirant (final year student) 
