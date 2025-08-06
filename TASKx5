@@ -1,0 +1,148 @@
+TASKx2
+
+npx @angular/cli@17 new task2 --routing=false --style=css --no-standalone
+
+cd task2
+
+-> src/index.html
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>task2</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+-> src/app/app.module.ts
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports:      [BrowserModule],
+  bootstrap:    [AppComponent]
+})
+export class AppModule { }
+
+-> src/app/app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  users = [
+    { name: 'Anil', age: 25, email: 'anil@test.com' },
+    { name: 'Sam',  age: 19, email: 'sam@test.com'  },
+    { name: 'Tony', age: 34, email: 'tony@test.com' }
+  ];
+}
+
+-> src/app/app.component.html
+
+<h1>For Loop in Angular (Object Array in Table)</h1>
+
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+-> src/app/app.component.css
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+npm install
+
+ng serve --open
+
+
+TASKx1
+
+npx @angular/cli@17 new task1 --routing=false --style=css
+
+cd task1
+
+-> src/app/app.component.ts
+
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  data: string[] = ['Anil', 'Sam', 'Peter', 'Bruce'];
+}
+
+-> src/app/app.component.html
+
+<!-- src/app/app.component.html -->
+<h1>For Loop in Angular (Simple Array)</h1>
+
+<ul>
+  <li *ngFor="let item of data">
+    {{ item }}
+  </li>
+</ul>
+
+-> app.module.ts
+
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+-> ng serve
+
