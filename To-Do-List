@@ -1,0 +1,201 @@
+1) Terminal
+
+bash
+Copy
+Edit
+npx -p @angular/cli@17 ng new exp5 --routing=true --style=css --no-standalone
+cd exp5
+ng serve
+2) src/app/app.module.ts
+
+ts
+Copy
+Edit
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+3) src/app/app.component.ts
+
+ts
+Copy
+Edit
+import { Component } from '@angular/core';
+
+type Priority = 'High' | 'Medium' | 'Low';
+
+interface Task {
+  description: string;
+  priority: Priority;
+  editing?: boolean;
+  draftDescription?: string;
+  draftPriority?: Priority;
+}
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  newDescription = '';
+  newPriority: Priority = 'Medium';
+  tasks: Task[] = [];
+
+  addTask(): void {
+    const desc = this.newDescription.trim();
+    if (!desc) return;
+    this.tasks.push({ description: desc, priority: this.newPriority, editing: false });
+    this.newDescription = '';
+    this.newPriority = 'Medium';
+  }
+
+  editTask(i: number): void {
+    const t = this.tasks[i];
+    t.editing = true;
+    t.draftDescription = t.description;
+    t.draftPriority = t.priority;
+  }
+
+  saveTask(i: number): void {
+    const t = this.tasks[i];
+    const desc = (t.draftDescription ?? '').trim();
+    if (desc) {
+      t.description = desc;
+      t.priority = t.draftPriority ?? t.priority;
+    }
+    t.editing = false;
+    delete t.draftDescription;
+    delete t.draftPriority;
+  }
+
+  cancelEdit(i: number): void {
+    const t = this.tasks[i];
+    t.editing = false;
+    delete t.draftDescription;
+    delete t.draftPriority;
+  }
+
+  removeTask(i: number): void {
+    this.tasks.splice(i, 1);
+  }
+}
+4) src/app/app.component.html
+
+html
+Copy
+Edit
+<div class="container">
+  <h1>To-Do List</h1>
+
+  <div class="input-row">
+    <input [(ngModel)]="newDescription" placeholder="Task description" />
+    <select [(ngModel)]="newPriority">
+      <option>High</option>
+      <option>Medium</option>
+      <option>Low</option>
+    </select>
+    <button (click)="addTask()">Add</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>S.No.</th>
+        <th>Work</th>
+        <th>Priority</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of tasks; let i = index">
+        <td>{{ i + 1 }}</td>
+
+        <td>
+          <span *ngIf="!t.editing">{{ t.description }}</span>
+          <input *ngIf="t.editing" [(ngModel)]="t.draftDescription" />
+        </td>
+
+        <td>
+          <span *ngIf="!t.editing" class="badge" [class.high]="t.priority==='High'"
+                [class.medium]="t.priority==='Medium'" [class.low]="t.priority==='Low'">
+            {{ t.priority }}
+          </span>
+          <select *ngIf="t.editing" [(ngModel)]="t.draftPriority">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+        </td>
+
+        <td class="actions">
+          <button *ngIf="!t.editing" (click)="editTask(i)">Edit</button>
+          <button *ngIf="t.editing" (click)="saveTask(i)">Save</button>
+          <button *ngIf="t.editing" (click)="cancelEdit(i)">Cancel</button>
+          <button (click)="removeTask(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+5) src/app/app.component.css
+
+css
+Copy
+Edit
+.container {
+  width: 700px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input, select, button {
+  padding: 6px 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+th {
+  background: #f2f2f2;
+}
+
+.actions button {
+  margin-right: 6px;
+}
+
+/* priority badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.high { background: #ffd6d6; border: 1px solid #ff6b6b; }
+.medium { background: #fff3cd; border: 1px solid #ffcf33; }
+.low { background: #d4edda; border: 1px solid #7bc67b; }
