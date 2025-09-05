@@ -1,94 +1,91 @@
-# 7CST_ANGULARxLAB
+# Angular Core Implementations 🚀
 
-👨‍💻 **Uday's Angular Lab Archive**  
-**Semester:** 7th CST | **Course:** ANGULAR LAB (AR(P))  
-**Format:** Only `.txt` files because I’m not here to impress GitHub with flashy folders.
+A structured portfolio showcasing **hands-on Angular implementations**, built step by step to demonstrate mastery of core concepts.  
+Each module in this repository represents a practical application of Angular fundamentals — from components and templates to routing, services, and beyond.  
 
----
-
-## 😎 What *This* Is (And What It Isn't)
-
-This is **my personal dump zone**. Yep — one stop archive of my Angular lab work.
-- For me.
-- By me.
-- Maintained while procrastinating harder than my deadlines.
-
-This ain’t a complete Angular project repo. 
-This isn’t a full-fledged clone-and-run setup either.
-
-What you’ll find here is **brutally straightforward `.txt` files**, containing:
-- The **entire logic/code** for each lab experiment
-- Structured in a way that helps me **write records** without flipping VS Code during exam week
-
-No promises of prettiness, just raw code and sarcasm.✨
+This is not just a set of college experiments — it is a **progressive Angular portfolio**, designed to highlight professional coding practices, project organization, and clarity of implementation.  
 
 ---
 
-## 🚨 Copy-Paste Warning (Yeah, You)
+## 📂 Repository Structure
 
-Let’s be real: 
-You’re probably here looking to copy stuff. And I get it.
-But here’s the deal:
-
-> **This archive is NOT built for blind copy-paste.**
-
-It’s here for:
-- Code referencing (aka controlled copying)
-- Record documentation
-- Remembering what I even wrote a week ago
-
-So if you’re just Ctrl+C, Ctrl+V-ing without understanding a thing, don’t cry if your viva crashes harder than Angular CLI.
-
----
-
-## 📂 What’s Inside (So Far)
-
-Currently, only the **important directories have `.txt` files** — and they contain:
-- Clean, formatted code
-- Minimal explanations (I’ll do comments when I retire maybe)
-- Enough to build your own experiments without starting from scratch
-
-I'll push full project setups **after** all 10 experiments are done — not before.
-Because who has time to keep git commits perfect while trying to not fail internals?
+- [01.0-knowing-the-editor](https://github.com/udaycodespace/angular-core-implementations/tree/main/01.0-knowing-the-editor) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/01.0-knowing-the-editor/)
+- [01.1-knowing-the-editor](https://github.com/udaycodespace/angular-core-implementations/tree/main/01.1-knowing-the-editor) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/01.1-knowing-the-editor/)
+- [02-implementing-components](https://github.com/udaycodespace/angular-core-implementations/tree/main/02-implementing-components) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/02-implementing-components/)
+- [03-implementing-templates](https://github.com/udaycodespace/angular-core-implementations/tree/main/03-implementing-templates) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/03-implementing-templates/)
+- [04-routing-applications](https://github.com/udaycodespace/angular-core-implementations/tree/main/04-routing-applications) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/04-routing-applications/)
+- [05.0-displaying-a-list](https://github.com/udaycodespace/angular-core-implementations/tree/main/05.0-displaying-a-list) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/05.0-displaying-a-list/)
+- [05.1-displaying-a-list](https://github.com/udaycodespace/angular-core-implementations/tree/main/05.1-displaying-a-list) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/05.1-displaying-a-list/)
+- [05.2-displaying-a-list](https://github.com/udaycodespace/angular-core-implementations/tree/main/05.2-displaying-a-list) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/05.2-displaying-a-list/)
+- [06-adding-services](https://github.com/udaycodespace/angular-core-implementations/tree/main/06-adding-services) · [Live 🚀](https://udaycodespace.github.io/angular-core-implementations/06-adding-services/)
+- *(Coming Soon)* [07-adding-navigation](https://github.com/udaycodespace/angular-core-implementations/tree/main/07-adding-navigation)
+- *(Coming Soon)* [08-server-data-fetching](https://github.com/udaycodespace/angular-core-implementations/tree/main/08-server-data-fetching)
+- *(Coming Soon)* [09-using-published-libraries](https://github.com/udaycodespace/angular-core-implementations/tree/main/09-using-published-libraries)
+- *(Coming Soon)* [10-user-defined-libraries](https://github.com/udaycodespace/angular-core-implementations/tree/main/10-user-defined-libraries)
 
 ---
 
-## 📚 Course Outcomes (Straight from the syllabus gods):
+## 🎯 Learning Objectives
 
-- **CO1:** Understand how Angular even works
-- **CO2:** Build components/templates that *look* functional
-- **CO3:** Make single-page apps that don’t crash (much)
-- **CO4:** Talk to a server and get *some* kind of data
-- **CO5:** Use or fake some libraries like a good dev
+Through this portfolio, the following Angular skills are demonstrated:
 
----
-
-## 🔬 Experiments Dumped (as `.txt` files):
-
-1. Knowing the Editor
-2. Implementing Components
-3. Implementing Templates
-4. Creating Routing Applications
-5. Displaying a List
-6. Adding Services
-7. Adding Navigation
-8. Getting Data from a Server
-9. Using Published Libraries
-10. Creating Custom Libraries
-
-Extras will be added whenever I’m bored or forced to.
+- ✅ Component-based architecture  
+- ✅ Template syntax & data binding  
+- ✅ Routing & navigation  
+- ✅ Working with lists & structural directives  
+- ✅ Service creation & dependency injection  
+- 🔜 API integration with `HttpClient`  
+- 🔜 Building and consuming libraries  
 
 ---
 
-## ✍️ Final Notes (Because Someone Might Still Ask)
+## 🛠️ Tech Stack
 
-- This is my code **documentation vault**, not a bootcamp.
-- If you can read code, you can use it.
-- If you can’t... this repo won’t save you.
-- Internal? External? Just show this as your reference doc, and you might walk out alive.
-- Pushes are random, just like Angular errors.
+- **Framework:** Angular (v17+)  
+- **Language:** TypeScript  
+- **Styling:** CSS  
+- **Build Tool:** Angular CLI  
+- **Version Control:** Git + GitHub  
 
 ---
 
-**Written with rage, late nights, and accidental wisdom.**  
-**– UDAYx (a.k.a The Record Rescuer You Secretly Needed)**
+## 🌟 How to Run
+
+Clone the repo and run any module independently:
+
+```bash
+# Clone repository
+git clone https://github.com/your-username/angular-core-implementations.git
+cd angular-core-implementations
+
+# Navigate into a module (example: implementing components)
+cd 02-implementing-components
+
+# Install dependencies & run
+npm install
+ng serve
+```
+
+---
+
+## 📌 Purpose
+
+This repository serves as:
+
+- 📘 A **learning portfolio** documenting my Angular journey.  
+- 💼 A **showcase for recruiters** to evaluate my hands-on expertise.  
+- 🤝 A **reference project** for peers and learners exploring Angular.  
+
+---
+
+## 👤 Author
+
+**Somapuram Uday**  
+Final-year B.Tech CST @ GPREC | Aspiring Full-Stack & AI/ML Developer  
+
+🔗 [LinkedIn](https://www.linkedin.com/in/somapuram-uday/)  
+💻 [GitHub](https://github.com/udaycodespace)  
+
+---
+
+✨ *This repository will be continuously updated with advanced Angular modules and best practices.*  
